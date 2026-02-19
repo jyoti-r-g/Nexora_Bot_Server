@@ -75,9 +75,9 @@ Then edit `.env` with your specific configuration values.
 
 >
  ## Step 5: Pulling Redis image.
->
+
  When you run **docker-compose up**, Docker will automatically pull it for you.
->
+
  ## 🎯 Step 6: Start All Services
 
  You need to run **3 services** Redis, API Server, Celery in separate terminal windows. To run all the three at once just run:
