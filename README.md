@@ -70,7 +70,25 @@ Then edit `.env` with your specific configuration values.
 
 > 💡 **Tip:** Get your Supabase credentials by running `npx supabase status` after starting Supabase locally.
 
-> ⚠️ **Note:** Supabase has updated their naming. The old variable `service_role key` is now simply called `Secret Key`.  
+> ⚠️ **Note:** Supabase has updated their naming. The old variable `service_role key` is now simply called `Secret Key`.
+>
+> ```bash
+cp .env.sample .env
+```
+> 
+>
+> ## Step 5: Pulling Redis image.
+>
+> When you run docker-compose up, Docker will automatically pull it for you.
+>
+> ## 🎯 Step 6: Start All Services
+>
+> You need to run **3 services** Redis, API Server, Celery in separate terminal windows. To run all the three at once just run:
+>
+> 
+> ```bash
+.\run.bat all
+```
 
 
 
