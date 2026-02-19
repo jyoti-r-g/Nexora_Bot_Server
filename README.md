@@ -10,11 +10,7 @@ Before you start, make sure you have these installed:
 
 ## 🔧 Step 1: Install System Dependencies
 
-### macOS
 
-```bash
-brew install poppler tesseract libmagic
-```
 
 ### Linux (Ubuntu/Debian)
 
