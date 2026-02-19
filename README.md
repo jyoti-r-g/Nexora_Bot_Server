@@ -80,7 +80,7 @@ Then edit `.env` with your specific configuration values.
 
  ## 🎯 Step 6: Start All Services
 
- You need to run **3 services** Redis, API Server, Celery in separate terminal windows. To run all the three at once just run:
+ You need to run **3 services** Redis, API Server, Celery in separate terminal windows. To run all the three services, just run:
 
 ```bash
 .\run.bat all
