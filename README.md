@@ -72,10 +72,7 @@ Then edit `.env` with your specific configuration values.
 
 > ⚠️ **Note:** Supabase has updated their naming. The old variable `service_role key` is now simply called `Secret Key`.
 >
-> ```bash
-cp .env.sample .env
-```
-> 
+
 >
  ## Step 5: Pulling Redis image.
 >
@@ -85,9 +82,9 @@ cp .env.sample .env
 
  You need to run **3 services** Redis, API Server, Celery in separate terminal windows. To run all the three at once just run:
 
->
->.\run.bat all
->
+```bash
+.\run.bat all
+```
 
 
 
