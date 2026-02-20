@@ -1,0 +1,38 @@
+sequenceDiagram
+    autonumber
+    participant U as User
+    participant F as Frontend (Next.js)
+    participant B as Backend (FastAPI)
+    participant S3 as AWS S3
+    participant R as Redis Queue
+    participant C as Celery Worker
+    participant DB as Supabase (Vector DB)
+    participant AI as OpenAI (GPT-4)
+
+    U->>F: Uploads Document (PDF/Docs)
+    F->>B: Request Presigned URL
+    B-->>F: Return Upload URL
+    F->>S3: Upload File directly to S3
+    F->>B: Confirm Upload & Trigger Ingestion
+    B->>R: Enqueue Ingestion Task
+    B-->>F: Return "Processing Started"
+
+    par [Async Processing]
+        R->>C: Worker picks up Task
+        C->>S3: Download File
+        C->>C: Extract Text & Create Chunks
+        C->>AI: Generate Embeddings for Chunks
+        C->>DB: Store Metadata & Vectors
+    and [Frontend Polling]
+        F->>B: Check Status
+    end
+
+    U->>F: Asks Question
+    F->>B: Send Query
+    B->>AI: Generate Query Embedding
+    B->>DB: Vector Search (Similarity Search)
+    DB-->>B: Return Relevant Context Chunks
+    B->>AI: Send System Prompt + Context + Query
+    AI-->>B: Stream Response
+    B->>F: Stream Answer to User
+    F-->>U: Displays Answer
