@@ -10,11 +10,7 @@ Before you start, make sure you have these installed:
 
 ## 🔧 Step 1: Install System Dependencies
 
-### macOS
 
-```bash
-brew install poppler tesseract libmagic
-```
 
 ### Linux (Ubuntu/Debian)
 
@@ -74,7 +70,22 @@ Then edit `.env` with your specific configuration values.
 
 > 💡 **Tip:** Get your Supabase credentials by running `npx supabase status` after starting Supabase locally.
 
-> ⚠️ **Note:** Supabase has updated their naming. The old variable `service_role key` is now simply called `Secret Key`.  
+> ⚠️ **Note:** Supabase has updated their naming. The old variable `service_role key` is now simply called `Secret Key`.
+>
+
+>
+ ## Step 5: Pulling Redis image.
+
+ When you run **docker-compose up**, Docker will automatically pull it for you.
+
+ ## 🎯 Step 6: Start All Services
+
+ You need to run **3 services** Redis, API Server, Celery in separate terminal windows. To run all the three services, just run:
+
+```bash
+.\run.bat all
+```
+
 
 
 
